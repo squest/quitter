@@ -13,5 +13,6 @@
                  ;;html
                  [hiccup "1.0.5"]
                  [selmer "0.9.2"]
-                 [hickory "0.5.4"]]
+                 [hickory "0.5.4"]
+                 [com.taoensso/timbre "4.1.4"]]
   :profiles {:dev {:source-paths ["dev"]}})
