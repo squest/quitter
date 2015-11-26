@@ -17,5 +17,7 @@ your option) any later version.
 
 TODO Make steps for installing and running datomic free
 
-Download datomic free (here)[https://my.datomic.com/downloads/free]
-
+1. Download datomic free (here)[https://my.datomic.com/downloads/free]
+2. Copy datomic folder to installation place. 
+3. Copy Copy the transactor template over to config
+4. Run transactor
