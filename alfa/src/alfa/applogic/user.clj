@@ -1,5 +1,6 @@
 (ns alfa.applogic.user
-  (:require [schema.core :as s]))
+  (:require [schema.core :as s]
+            [datomic.api :as d]))
 
 ;;User Schema
 
@@ -7,7 +8,8 @@
   "Schema for user to sign-up"
   {:username s/Str
    :email    s/Str
-   :password s/Str})
+   :password s/Str
+   :cingcong s/Str})
 
 (defn add-user!
   "Add user... duh!!"
@@ -24,3 +26,7 @@
 (defn valid-user?
   "Probably for login stuff"
   [])
+
+(def uri "datomic:free://localhost:4334/quitter")
+
+(def conn (d/connect uri))
