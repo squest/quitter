@@ -39,12 +39,12 @@
 
 (def navigation-header
   [:nav {:id "primary-menu"}
-   [:ul {:data-offset "65", :data-speed "1250", :data-easing "easeInOutExpo", :class "one-page-menu"}
-    [:li [:a {:data-href "#wrapper", :href "#"}
-          [:div "Home"]]]
-    [:li [:a {:data-href "#section-about", :href "#"}
+   [:ul {:class "one-page-menu"}
+    [:li {:class "current"} [:a {:data-href "#section-home", :href "#"}
+                             [:div "Home"]]]
+    [:li [:a {:data-href "#section-features", :href "#"}
           [:div "Directory"]]]
-    [:li [:a {:data-href "#section-works", :href "#"}
+    [:li [:a {:data-href "#section-pricing", :href "#"}
           [:div "Profile"]]]]])
 
 (def header-user
@@ -56,3 +56,13 @@
 
      logo-header
      navigation-header]]])
+
+(def head
+  [:nav {:id "primary-menu"}
+   [:ul {:class "one-page-menu"}
+    [:li {:class "current"} [:a {:data-href "#section-home", :href "#"}
+                             [:div "Home"]]]
+    [:li [:a {:data-href "#section-features", :href "#"}
+          [:div "Directory"]]]
+    [:li [:a {:data-href "#section-pricing", :href "#"}
+          [:div "Profile"]]]]])
