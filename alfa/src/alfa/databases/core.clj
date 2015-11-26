@@ -32,12 +32,12 @@
         (log/info "There is no connection!")
         this))))
 
-(defn make
-  [db-uri part]
+(defn make-database
+  [{:keys [db-uri part] :as database}]
   (map->Database {:db-uri db-uri
                   :part   part}))
 
-(defn init-db
+(defn- init-db
   [db-uri part]
   (let [schema (read-string (slurp "./resources/schema/schema.edn"))]
     (d/create-database db-uri)
