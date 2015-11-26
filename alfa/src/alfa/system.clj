@@ -21,11 +21,27 @@
                 [:service])
    :database (database/make-database (get conf :database))))
 
+(defn init-mock-system
+  [conf]
+  (component/system-map
+   :routes (routes/make-routes-map)
+            
+   :service (component/using
+             (service/make-service-map)
+             [:routes])
+   :web-server (component/using
+                (server/make-web-server)
+                [:service])))
+
 (def dev-system nil)
 
-(defn init []
-  (alter-var-root #'dev-system
-                  (constantly (init-system conf))))
+(defn init
+  ([]
+   (alter-var-root #'dev-system
+                   (constantly (init-system conf))))
+  ([mode]
+   (alter-var-root #'dev-system
+                   (constantly (init-mock-system conf)))))
 
 
 (defn start []

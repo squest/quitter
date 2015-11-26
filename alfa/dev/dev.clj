@@ -10,3 +10,11 @@
 (defn reset []
   (stop)
   (refresh :after 'dev/go))
+
+(defn go-mock []
+  (init :mock)
+  (start))
+
+(defn reset-mock []
+  (stop)
+  (refresh :after 'dev/go-mock))
