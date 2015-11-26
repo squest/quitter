@@ -10,9 +10,11 @@
                  ;; [ch.qos.logback/logback-classic "1.1.3" :exclusions [org.slf4j/slf4j-api]]
                  [org.slf4j/jul-to-slf4j "1.7.12"]
                  [org.slf4j/jcl-over-slf4j "1.7.12"]
+                 ;;tools
+                 [prismatic/schema "1.0.3"]
+                 [com.taoensso/timbre "4.1.4"]
                  ;;html
                  [hiccup "1.0.5"]
                  [selmer "0.9.2"]
-                 [hickory "0.5.4"]
-                 [com.taoensso/timbre "4.1.4"]]
+                 [hickory "0.5.4"]]
   :profiles {:dev {:source-paths ["dev"]}})
