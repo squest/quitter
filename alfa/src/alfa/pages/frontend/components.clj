@@ -35,7 +35,7 @@
 (def logo-header
   [:div {:id "logo"}
    [:a {:data-dark-logo "images/performance.png", :class "standard-logo", :href "index.html"}
-    [:img {:alt "Canvas Logo", :src "images/ZPlogo.png"}]]])
+    [:img {:src "images/performance.png"}]]])
 
 (def navigation-header
   [:nav {:id "primary-menu"}
@@ -54,7 +54,7 @@
      [:input {:type "text", :placeholder "Type & Hit Enter..", :class "form-control", :name "q"}]]]])
 
 (def header-user
-  [:header {:data-sticky-offset "0", :data-sticky-class "not-dark", :class "full-header dark transparent-header static-sticky", :id "header"}
+  [:header {:data-sticky-offset "0", :class "full-header static-sticky", :id "header"}
    [:div {:id "header-wrap"}
     [:div {:class "container clearfix"}
      [:div {:id "primary-menu-trigger"}
