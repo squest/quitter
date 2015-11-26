@@ -24,10 +24,22 @@
   [:div {:class "widget clearfix", :id "text"}
    [:h3 {:class "highlight-me"} "Title of Problem"]
    prob-image
-   [:div {:class "line"}]
    prob-question
-   [:div {:class "line"}]
    prob-option])
+
+(def social
+  [:div {:class "line"}
+   [:div {:class "widget quick-contact-widget clearfix", :id "s-icons"}
+    [:a {:title "Facebook", :class "social-icon si-colored si-facebook", :href "#"}
+     [:i {:class "icon-facebook"}] [:i {:class "icon-facebook"}]]
+    [:a {:title "Twitter", :class "social-icon si-colored si-twitter", :href "#"}
+     [:i {:class "icon-twitter"}] [:i {:class "icon-twitter"}]]
+    [:a {:title "Github", :class "social-icon si-colored si-github", :href "#"}
+     [:i {:class "icon-github"}] [:i {:class "icon-github"}]]
+    [:a {:title "Google Plus", :class "social-icon si-colored si-gplus", :href "#"}
+     [:i {:class "icon-gplus"}] [:i {:class "icon-gplus"}]]
+    [:a {:title "Instagram", :class "social-icon si-colored si-instagram", :href "#"}
+     [:i {:class "icon-instagram"}] [:i {:class "icon-instagram"}]]]])
 
 (defn do-quiz
   ([] (hp/html5
@@ -61,7 +73,10 @@
                  [:div "History"]]]]]]
 
             [:div {:class "col-md-9 bottommargin"}
-             problem]]]]
+             [:div {:class "col-md-10 bottommargin"}
+              problem]
+             [:div {:class "col-md-2 bottommargin"}
+              social]]]]]
 
 
 
