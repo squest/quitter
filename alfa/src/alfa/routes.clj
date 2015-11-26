@@ -8,7 +8,8 @@
             [io.pedestal.http.ring-middlewares :as middlewares]
             [io.pedestal.test :as ptest]
             [io.pedestal.http.csrf :as csrf]
-            [ring.util.response :as ring-resp]))
+            [ring.util.response :as ring-resp]
+            [alfa.pages.frontend.quiz :as pquiz]))
 
 
 ;; (def nuthin
@@ -42,6 +43,15 @@
              (assoc ctx :response
                     (ring-resp/response (str "hello world"))))}))
 
+(def set-content-type)
+
+(def page-quiz
+  (interceptor
+   {:name ::page-quiz
+    :enter (fn [ctx]
+             (assoc ctx :response
+                    (assoc (ring-resp/response (pquiz/do-quiz))
+                           :headers {"Content-Type" "text/html; charset=utf-8"})))}))
 
 (defn routes
   []
@@ -55,7 +65,7 @@
      {:any hello}
      ["/a" {:any intereq}]            
      ["/ctx" {:any interctx}]
-     ]
+     ["/quiz" {:get page-quiz}]]
 ]])
 
 ;; #_(defn hello-world [req] {:status 200 :body "Hello World!"})
