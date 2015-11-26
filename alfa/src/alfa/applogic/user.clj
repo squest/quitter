@@ -26,7 +26,3 @@
 (defn valid-user?
   "Probably for login stuff"
   [])
-
-(def uri "datomic:free://localhost:4334/quitter")
-
-(def conn (d/connect uri))
