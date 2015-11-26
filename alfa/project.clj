@@ -23,4 +23,4 @@
                  ;;datomic
                  [com.datomic/datomic-free "0.9.5327"]]
   :profiles {:dev {:source-paths ["dev"]}}
-  :resource-path ["resources"])
+  :resource-paths ["resources"])
