@@ -3,7 +3,8 @@
             [com.stuartsierra.component :as component]
             [alfa.routes :as routes]
             [alfa.server :as server]
-            [alfa.service :as service]))
+            [alfa.service :as service]
+            [alfa.databases.core :as database]))
 
 (def conf (read-string (slurp "config.edn"))
   )
@@ -19,7 +20,7 @@
    :web-server (component/using
                 (server/make-web-server)
                 [:service])
-   ))
+   :database (database/make-database (get conf :database))))
 
 (def dev-system nil)
 
