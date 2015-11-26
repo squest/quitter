@@ -1,0 +1,8 @@
+{:text    "Siapakah pahlawan Stark?"
+ :choices [[true "Brandon Stark"]
+           [false "Jon Stark"]
+           [false "Eddard Stark"]
+           [false "Cathlyn Stark"]
+           [false "Rob Stark"]]
+ :category "got"}
+
