@@ -39,13 +39,19 @@
 
 (def navigation-header
   [:nav {:id "primary-menu"}
-   [:ul {:data-offset "65", :data-speed "1250", :data-easing "easeInOutExpo", :class "one-page-menu"}
-    [:li [:a {:data-href "#wrapper", :href "#"}
-          [:div "Home"]]]
-    [:li [:a {:data-href "#section-about", :href "#"}
+   [:ul {:class "one-page-menu"}
+    [:li {:class "current"} [:a {:data-href "#section-home", :href "#"}
+                             [:div "Home"]]]
+    [:li [:a {:data-href "#section-features", :href "#"}
           [:div "Directory"]]]
-    [:li [:a {:data-href "#section-works", :href "#"}
-          [:div "Profile"]]]]])
+    [:li [:a {:data-href "#section-pricing", :href "#"}
+          [:div "Profile"]]]]
+   [:div {:id "top-search"}
+    [:a {:id "top-search-trigger", :href "#"}
+     [:i {:class "icon-search3"}]
+     [:i {:class "icon-line-cross"}]]
+    [:form {:method "get", :action "search.html"}
+     [:input {:type "text", :placeholder "Type & Hit Enter..", :class "form-control", :name "q"}]]]])
 
 (def header-user
   [:header {:data-sticky-offset "0", :data-sticky-class "not-dark", :class "full-header dark transparent-header static-sticky", :id "header"}
@@ -56,3 +62,4 @@
 
      logo-header
      navigation-header]]])
+
