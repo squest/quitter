@@ -10,27 +10,27 @@
 (defrecord WebServer [server service]
   component/Lifecycle
   (start [this]
-         (if server
-           (do
-             (println "server udah nyala baoss... lo mau ngerusak ??")
-             this)
-           (let [server (-> (:service-data service)
-                            server/default-interceptors
-                            server/dev-interceptors
-                            server/create-server)]
-             (do
-               (server/start server)
-               (-> this
-                   (assoc :server server))))))
+    (if server
+      (do
+        (println "server udah nyala baoss... lo mau ngerusak ??")
+        this)
+      (let [server (-> (:service-data service)
+                       server/default-interceptors
+                       server/dev-interceptors
+                       server/create-server)]
+        (do
+          (server/start server)
+          (-> this
+              (assoc :server server))))))
   (stop [this]
-        (if-not server
-          (do
-            (println "server nya udah mateeeeee")
-            this)
-          (do
-            (server/stop server)
-            (-> this
-                (assoc :server nil))))))
+    (if-not server
+      (do
+        (println "server nya udah mateeeeee")
+        this)
+      (do
+        (server/stop server)
+        (-> this
+            (assoc :server nil))))))
 
 (defn make-web-server []
   (map->WebServer {}))
