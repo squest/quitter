@@ -8,4 +8,4 @@
 
 (defn reset []
   (stop)
-  (refresh :after 'alfa.system/go))
+  (refresh :after 'dev/go))
