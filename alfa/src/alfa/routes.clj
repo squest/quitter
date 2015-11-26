@@ -9,7 +9,10 @@
             [io.pedestal.test :as ptest]
             [io.pedestal.http.csrf :as csrf]
             [ring.util.response :as ring-resp]
-            [alfa.pages.frontend.quiz :as pquiz]))
+            [alfa.pages.frontend.landing :as planding]
+            [alfa.pages.frontend.quiz :as pquiz]
+            [alfa.pages.frontend.probleminput :as pprobin]
+            [alfa.pages.frontend.problemsdirectory :as pprobdir]))
 
 
 ;; (def nuthin
@@ -43,15 +46,37 @@
              (assoc ctx :response
                     (ring-resp/response (str "hello world"))))}))
 
-(def set-content-type)
+(def page-home
+  (interceptor
+   {:name ::page-home
+    :enter (fn [ctx]
+             (assoc ctx :response
+                    (-> (ring-resp/response (planding/home))
+                        (ring-resp/content-type "text/html; charset=utf-8"))))}))
+
+(def page-problem-input
+  (interceptor
+   {:name ::page-problem-input
+    :enter (fn [ctx]
+             (assoc ctx :response
+                    (-> (ring-resp/response (pprobin/input-problem))
+                        (ring-resp/content-type "text/html; charset=utf-8"))))}))
+
+(def page-problems-directory
+  (interceptor
+   {:name ::page-problems-directory
+    :enter (fn [ctx]
+             (assoc ctx :response
+                    (-> (ring-resp/response (pprobdir/prob-directory))
+                        (ring-resp/content-type "text/html; charset=utf-8"))))}))
 
 (def page-quiz
   (interceptor
    {:name ::page-quiz
     :enter (fn [ctx]
              (assoc ctx :response
-                    (assoc (ring-resp/response (pquiz/do-quiz))
-                           :headers {"Content-Type" "text/html; charset=utf-8"})))}))
+                    (-> (ring-resp/response (pquiz/do-quiz))
+                        (ring-resp/content-type "text/html; charset=utf-8"))))}))
 
 (defn routes
   []
@@ -62,7 +87,9 @@
      ^:interceptors [(csrf/anti-forgery)
                      (body-params/body-params)
                      (middlewares/params)]
-     {:any hello}
+     {:get page-home}
+     ["/problem-input" {:get page-problem-input}]
+     ["/problems-directory" {:get page-problems-directory}]
      ["/a" {:any intereq}]            
      ["/ctx" {:any interctx}]
      ["/quiz" {:get page-quiz}]]
