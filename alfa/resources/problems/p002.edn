@@ -1,0 +1,7 @@
+{:text "What is the colour of Sansa's wedding gown?"
+ :choices [[false "Black"]
+           [true "White"]
+           [false "Red"]
+           [false "Brown"]
+           [false "Blue"]]
+ :category "got"}
