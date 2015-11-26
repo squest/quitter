@@ -14,7 +14,11 @@
 
          [:body {:class "stretched"}
           [:div {:class "clearfix", :id "wrapper"}
-           components/header-user]
+           components/header-user
+           [:title "Quiz | Quitter"]]
+
+           [:section {:id "content"}
+            [:div {:class "content-wrap"}]]]
 
           "<!-- Footer Scripts\n\t============================================= -->" "\n\t"
-          [:script {:src "../js/functions.js", :type "text/javascript"}]]])))
+          [:script {:src "../js/functions.js", :type "text/javascript"}]])))
