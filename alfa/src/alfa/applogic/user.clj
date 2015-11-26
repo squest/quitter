@@ -29,4 +29,4 @@
 
 (def uri "datomic:free://localhost:4334/quitter")
 
-(def conn (q/connect uri))
+(def conn (d/connect uri))
