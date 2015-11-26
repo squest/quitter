@@ -1,5 +1,6 @@
 (ns dev
   (:require [clojure.tools.namespace.repl :refer [refresh refresh-all]]
+            [alfa.databases.recovery :refer [reset-database]]
             [alfa.system :refer :all]))
 
 (defn go []

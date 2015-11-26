@@ -6,8 +6,7 @@
             [alfa.service :as service]
             [alfa.databases.core :as database]))
 
-(def conf (read-string (slurp "config.edn"))
-  )
+(def conf (read-string (slurp "config.edn")))
 
 (defn init-system
   [conf]
