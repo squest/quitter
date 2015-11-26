@@ -9,14 +9,14 @@
 
 (def style
   (list [:link {:type "text/css", :rel "stylesheet", :href "http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"}]
-        [:link {:type "text/css", :href "css/bootstrap.css", :rel "stylesheet"}]
+        [:link {:type "text/css", :href "../css/bootstrap.css", :rel "stylesheet"}]
         [:link {:type "text/css", :href "style.css", :rel "stylesheet"}]
         [:link {:type "text/css", :href "../css/dark.css", :rel "stylesheet"}]
         [:link {:type "text/css", :href "../css/font-icons.css", :rel "stylesheet"}]
-        [:link {:type "text/css", :href "css/et-line.css", :rel "stylesheet"}]
+        [:link {:type "text/css", :href "../css/et-line.css", :rel "stylesheet"}]
         [:link {:type "text/css", :href "../css/animate.css", :rel "stylesheet"}]
         [:link {:type "text/css", :href "../css/magnific-popup.css", :rel "stylesheet"}]
-        [:link {:type "text/css", :href "css/fonts.css", :rel "stylesheet"}]
+        [:link {:type "text/css", :href "../css/fonts.css", :rel "stylesheet"}]
         [:link {:type "text/css", :href "../css/responsive.css", :rel "stylesheet"}]
         [:meta {:content "width=device-width, initial-scale=1", :name "viewport"}]
 

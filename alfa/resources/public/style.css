@@ -6982,6 +6982,10 @@ body:not(.device-touch) .button.button-full strong {
 .button-3d.button-yellow:hover,
 .button-reveal.button-yellow:hover { background-color: #ECD078 !important; }
 
+.button-bright-yellow { background-color: #FFE100; }
+.button-3d.button-bright-yellow:hover,
+.button-reveal.button-bright-yellow:hover { background-color: #FFEA00 !important; }
+
 .button-green { background-color: #59BA41; }
 .button-3d.button-green:hover,
 .button-reveal.button-green:hover { background-color: #59BA41 !important; }
