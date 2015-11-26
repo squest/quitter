@@ -1,5 +1,6 @@
 (ns alfa.core
-  (:require [alfa.system :as system]))
+  #_(:require
+      [alfa.system :as system]))
 
-(defn -main [& args]
-  (system/go))
+#_(defn -main [& args]
+    (system/go))
