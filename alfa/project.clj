@@ -19,5 +19,7 @@
                  ;;html
                  [hiccup "1.0.5"]
                  [selmer "0.9.2"]
-                 [hickory "0.5.4"]]
+                 [hickory "0.5.4"]
+                 ;;datomic
+                 [com.datomic/datomic-free "0.9.5327"]]
   :profiles {:dev {:source-paths ["dev"]}})
