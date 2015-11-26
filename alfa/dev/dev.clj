@@ -1,6 +1,11 @@
 (ns dev
-  #_(:require [alfa.system :refer :all]))
+  (:require [clojure.tools.namespace.repl :refer [refresh refresh-all]]
+            [alfa.system :refer :all]))
 
-(defn go
-  []
-  "System isn't ready :(")
+(defn go []
+  (init)
+  (start))
+
+(defn reset []
+  (stop)
+  (refresh :after 'alfa.system/go))
