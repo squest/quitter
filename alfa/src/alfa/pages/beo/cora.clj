@@ -31,25 +31,55 @@
        [:li
         [:a {:href "#"} "Apa?"]]
        [:li
-        [:a {:href "#"} "Siapa?"]]
+        [:a {:href "https://en.wikipedia.org/wiki/God_is_dead"} "Siapa?"]]
        [:li
-        [:a {:href "#"} "Dia?"]]
+        [:a {:href "https://en.wikipedia.org/wiki/%C3%9Cbermensch"} "Dia?"]]
        [:li
         [:a {:href "#"} "Di mana?"]]]]]]
    [:div {:class "container"}
     [:header {:class "jumbotron hero-spacer"}
-     [:h1 "Salahumba"]
-     [:p "sangat disayangkan hidup dalam sanubari kelam yang tak dapat dipungkiri tentang kebenaran yang ilmiah"
-      [:br "Kemoche"]]]
-    [:hr ]
-    [:form
-     [:p "Ngentot sama siape :"]
-     [:input]
-     [:p "anjing"]
-     [:textarea {:rows 10 :cols 40}]
-     ]]])
+     [:h1 {:align "middle"} "Zoroaster"]
+     [:p {:align "middle" :style "font-size:17px"}
+      [:q "O man, take care!"
+       [:br]
+       "What does the deep midnight declare?"
+       [:br]
+       "I was asleep--"
+       [:br]
+       "From a deep dream I woke and swear:—"
+       [:br]
+       "The world is deep,"
+       [:br]
+       "Deeper than day had been aware"
+       [:br]
+       "Deep is its woe"
+       [:br]
+       "Joy-- Deeper yet than agony"
+       [:br]
+       "Woe implores: Go!!"
+       [:br]
+       "but all joy wants eternity--"
+       [:br]
+       "Wants deep, Wants deep eternity"]]
+     [:hr]]
+    ]])
 
+(defn form
+  []
+  [:form
+   [:input {:type "radio" :name "fuck" :value "peler"} "Male"]
+   [:br]
+   [:input {:type "radio" :name "fuck" :value "meke"} "Female"]])
+
+(defn form1
+  []
+  [:form {:class "form-horizontal" :role "form"}
+   [:div {:class "form-group"}
+    [:label {:class "control-label col-sm-2" :for "email"} "Enter your E-fucking-mail:"] [:br]
+    [:div {:class " col-sm-10"}]
+    [:input {:type "email" :class "form-control" :id "email" :placeholder "Enter Motherfucker"}]]])
 (defn home
   []
   (html (head)
-        (body)))
+        (body)
+        (form1)))
