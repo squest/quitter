@@ -1,5 +1,6 @@
 (ns alfa.databases.core
-  (:require [com.stuartsierra.component :as component]))
+  (:require [com.stuartsierra.component :as component]
+            [datomic.api :as d]))
 
 ;;Feel free to change things
 
@@ -7,7 +8,8 @@
 
 (defrecord Database [db-uri part]
   component/Lifecycle
-  (start [this])
+  (start [this]
+    )
   (stop [this]))
 
 (defn make
