@@ -1,6 +1,6 @@
-(ns alfa.core)
+(ns alfa.core
+  #_(:require
+      [alfa.system :as system]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+#_(defn -main [& args]
+    (system/go))
