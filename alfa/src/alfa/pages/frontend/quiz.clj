@@ -4,6 +4,39 @@
     [hiccup.page :as hp]
     [alfa.pages.frontend.components :as components]))
 
+(def directory
+  [:div {:class "widget widget_links clearfix", :id "shortcodes"}
+   [:h4 "Problems Directory"]
+   [:nav {:class "nav-tree nobottommargin"}
+    [:ul
+     [:li [:a {:href "#"} [:i {:class "icon-bolt2"}] "Features"]
+      [:ul
+       [:li [:a {:href "#"} "Sliders"]]
+       [:li [:a {:href "#"} "Widgets"]]
+       [:li [:a {:href "#"} "Events"]]
+       [:li [:a {:href "#"} "Headers"]]]]
+     [:li [:a {:href "#"} [:i {:class "icon-briefcase"}] "Portfolio"]
+      [:ul
+       [:li [:a {:href "#"} "Grid"]
+        [:ul
+         [:li [:a {:href "#"} "3 Columns"]]
+         [:li [:a {:href "#"} "4 Columns"]]
+         [:li [:a {:href "#"} "5 Columns"]]]]
+       [:li [:a {:href "#"} "Masonry"]]
+       [:li [:a {:href "#"} "Loading Styles"]]
+       [:li [:a {:href "#"} "Single"]]]]
+     [:li [:a {:href "#"} [:i {:class "icon-file-text"}] "About"]
+      [:ul
+       [:li [:a {:href "#"} "Company"]]
+       [:li [:a {:href "#"} "Team"]]
+       [:li [:a {:href "#"} "Services"]]
+       [:li [:a {:href "#"} "FAQs"]]]] ]]])
+
+(def rec-learning
+  [:div {:class "widget clearfix", :id "w-video"}
+   [:h4 {:class "highlight-me"} "Recommended Learning"]
+   [:iframe {:width "500", :height "250", :src "http://player.vimeo.com/video/103927232"}]])
+
 (def prob-title
   [:div {:class "entry-content"}
    [:h2 {:class "highlight-me"} "Title of Problem"]])
@@ -65,14 +98,20 @@
           components/javascript]
 
          [:body {:class "stretched side-panel-left"}
+
           [:div {:class "clearfix", :id "wrapper"}
            components/header-user
            [:title "Quiz | Quitter"]]
+
+          (components/has-side-panel rec-learning directory )
 
           [:section {:id "content"}
            [:div {:class "content-wrap", :style "padding-top: 40px; padding-bottom: 20px;"}                    ;[:div {:class "container clear-bottommargin clearfix"} [:div {:class "row clearfix"}]]
 
             [:div {:class "col-md-2 bottommargin"}
+             (components/open-sider "Recommended learning" "icon-signal" "button-yellow button-light button-mini")
+             (components/open-sider "Directory" "" "button-leaf button-light button-mini")
+
              [:div {:class "widget widget_links clearfix", :id "shortcodes"}
               [:h4 {:class "highlight-me"} "Problems Directory"]
               [:ul
@@ -92,8 +131,6 @@
               problem]
              [:div {:class "col-md-1 bottommargin"}
               [:br social]]]]]]
-
-
 
          "<!-- Footer Scripts\n\t============================================= -->" "\n\t"
          [:script {:src "../js/functions.js", :type "text/javascript"}]])))

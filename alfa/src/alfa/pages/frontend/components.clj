@@ -63,3 +63,19 @@
      logo-header
      navigation-header]]])
 
+(defn has-side-panel [& content]
+  (list [:div {:class "body-overlay"}]
+        [:div {:class "dark", :id "side-panel"}
+         [:div {:class "side-panel-trigger", :id "side-panel-trigger-close"}
+          [:a {:href "#"} [:i {:class "icon-line-cross"}]]]
+         [:div {:class "side-panel-wrap"}
+          content]]))
+
+
+(defn open-sider [name icon & button-style]
+  [:section {:id "content"}
+   [:div {:class "content-wrap container"}
+    [:a {:class (str "button button-rounded side-panel-trigger button-reveal" " " (first button-style)), :href "#"}
+     [:i {:class icon}]
+     [:span name]]]])
+
