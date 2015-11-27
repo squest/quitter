@@ -8,9 +8,10 @@
         [:meta {:content "SemiColonWeb", :name "author"}]))
 
 (def style
-  (list [:link {:type "text/css", :rel "stylesheet", :href "http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"}]
-        [:link {:type "text/css", :href "css/bootstrap.css", :rel "stylesheet"}]
-        [:link {:type "text/css", :href "style.css", :rel "stylesheet"}]
+  (list [:link {:type "text/css", :rel "stylesheet", :href "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700"}]
+        [:link {:type "text/css", :href "../css/bootstrap.css", :rel "stylesheet"}]
+        [:link {:type "text/css", :href "../style.css", :rel "stylesheet"}]
+
         [:link {:type "text/css", :href "../css/dark.css", :rel "stylesheet"}]
         [:link {:type "text/css", :href "../css/font-icons.css", :rel "stylesheet"}]
         [:link {:type "text/css", :href "css/et-line.css", :rel "stylesheet"}]
@@ -22,15 +23,20 @@
 
         "<!-- One Page Module Specific Stylesheet -->"
         [:link {:type "text/css", :href "onepage.css", :rel "stylesheet"}]
-        "<!-- / -->"
 
         "<!--[if lt IE 9]>
-        <script src=\"http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js\"></script>
-        <![endif]-->"))
+        <script src=\"http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js\"></script>"))
 
 (def javascript
   (list [:script {:src "../js/jquery.js", :type "text/javascript"}]
         [:script {:src "../js/plugins.js", :type "text/javascript"}]))
+
+(def logo-header
+  [:div {:id "logo"}
+   [:a {:data-dark-logo "images/ZPlogo.png", :class "standard-logo", :href "index.html"}
+    [:img {:alt "Canvas Logo", :src "images/ZPlogo.png"}]]
+   [:a {:data-dark-logo "images/ZPlogo@2x.png", :class "retina-logo", :href "index.html"}
+    [:img {:alt "Canvas Logo", :src "images/ZPlogo@2x.png"}]]])
 
 (def logo-header
   [:div {:id "logo"}
@@ -62,4 +68,20 @@
 
      logo-header
      navigation-header]]])
+
+(defn has-side-panel [& content]
+  (list [:div {:class "body-overlay"}]
+        [:div {:class "dark", :id "side-panel"}
+         [:div {:class "side-panel-trigger", :id "side-panel-trigger-close"}
+          [:a {:href "#"} [:i {:class "icon-line-cross"}]]]
+         [:div {:class "side-panel-wrap"}
+          content]]))
+
+
+(defn open-sider [name icon & button-style]
+  [:section {:id "content"}
+   [:div {:class "container"}
+    [:a {:class (str "button button-rounded side-panel-trigger button-reveal" " " (first button-style)), :href "#"}
+     [:i {:class icon}]
+     [:span name]]]])
 
