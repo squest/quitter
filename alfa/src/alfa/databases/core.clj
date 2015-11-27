@@ -1,7 +1,8 @@
 (ns alfa.databases.core
-  (:require [com.stuartsierra.component :as component]
-            [datomic.api :as d]
-            [taoensso.timbre :as log]))
+  (:require
+    [com.stuartsierra.component :as component]
+    [datomic.api :as d]
+    [taoensso.timbre :as log]))
 
 ;;Feel free to change things
 

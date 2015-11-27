@@ -1,9 +1,10 @@
 (ns alfa.server
   (:gen-class) ; for -main method in uberjar
-  (:require [com.stuartsierra.component :as component]
-            [io.pedestal.http :as server]
-            [alfa.service :as service]
-            [alfa.routes :as routes]))
+  (:require
+    [com.stuartsierra.component :as component]
+    [io.pedestal.http :as server]
+    [alfa.service :as service]
+    [alfa.routes :as routes]))
 
 ;; This is an adapted service map, that can be started and stopped
 ;; From the REPL you can call server/start and server/stop on this service
