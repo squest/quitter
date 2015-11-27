@@ -61,7 +61,6 @@
 
 (def problem
   [:div {:class "widget clearfix", :id "text"}
-   prob-title
    [:div {:class "col-md-12"}
     [:div {:class "col-md-5"} prob-image]
     [:div {:class "col-md-7"} prob-question]]
@@ -69,10 +68,11 @@
     [:form {:class "notopmargin nobottommargin", :role "form", :action "#"}
      prob-option
      [:span {:class "input-group-btn topmargin center"}
-      [:button {:type "submit", :class "button button-small button-dark button-rounded", :href "#"}
+      [:button {:type "submit", :class "button button-small button-dark button-rounded", :style "margin-bottom: 15px;", :href "#"}
        [:i {:class "icon-ok-right"}] "Submit answer"]]
      [:div {:class "center"}
-      [:a {:class "button button-rounded button-3d button-large button-reveal button-large button-light button-bright-yellow tright", :href "#"}
+      [:p {:style "margin-bottom: 0px;"} "I'm not sure with my answer yet."]
+      [:a {:class "button button-rounded button-3d button-large button-reveal button-large button-light button-bright-yellow tright", :style "margin-top: 0px;", :href "#"}
        [:i {:class "icon-signal"}]
        [:span "RECOMMENDED LEARNING"]]]]]])
 
@@ -108,8 +108,11 @@
           [:section {:id "content"}
            [:div {:class "content-wrap", :style "padding-top: 40px; padding-bottom: 20px;"}                    ;[:div {:class "container clear-bottommargin clearfix"} [:div {:class "row clearfix"}]]
 
+            prob-title
+
+
             [:div {:class "col-md-2 bottommargin"}
-             (components/open-sider "Recommended learning" "icon-signal" "button-yellow button-light button-mini")
+             (components/open-sider "Recommendations" "icon-signal" "button-yellow button-light button-mini")
              (components/open-sider "Directory" "" "button-leaf button-light button-mini")
 
              [:div {:class "widget widget_links clearfix", :id "shortcodes"}
