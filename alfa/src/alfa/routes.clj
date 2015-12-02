@@ -1,18 +1,19 @@
 (ns alfa.routes
-  (:require [com.stuartsierra.component :as component]
-            [io.pedestal.http :as bootstrap]
-            [io.pedestal.http.route :as route]
-            [io.pedestal.http.body-params :as body-params]
-            [io.pedestal.http.route.definition :refer [defroutes expand-routes]]
-            [io.pedestal.interceptor :refer [interceptor]]
-            [io.pedestal.http.ring-middlewares :as middlewares]
-            [io.pedestal.test :as ptest]
-            [io.pedestal.http.csrf :as csrf]
-            [ring.util.response :as ring-resp]
-            [alfa.pages.frontend.landing :as planding]
-            [alfa.pages.frontend.quiz :as pquiz]
-            [alfa.pages.frontend.probleminput :as pprobin]
-            [alfa.pages.frontend.problemsdirectory :as pprobdir]))
+  (:require
+    [com.stuartsierra.component :as component]
+    [io.pedestal.http :as bootstrap]
+    [io.pedestal.http.route :as route]
+    [io.pedestal.http.body-params :as body-params]
+    [io.pedestal.http.route.definition :refer [defroutes expand-routes]]
+    [io.pedestal.interceptor :refer [interceptor]]
+    [io.pedestal.http.ring-middlewares :as middlewares]
+    [io.pedestal.test :as ptest]
+    [io.pedestal.http.csrf :as csrf]
+    [ring.util.response :as ring-resp]
+    [alfa.pages.frontend.landing :as planding]
+    [alfa.pages.frontend.quiz :as pquiz]
+    [alfa.pages.frontend.probleminput :as pprobin]
+    [alfa.pages.frontend.problemsdirectory :as pprobdir]))
 
 
 ;; (def nuthin
@@ -28,55 +29,55 @@
 
 (def interctx
   (interceptor
-   {:name ::interctx
-    :enter (fn [ctx]
-             (assoc ctx :response
-                    (ring-resp/response (str ctx))))}))
+    {:name ::interctx
+     :enter (fn [ctx]
+              (assoc ctx :response
+                         (ring-resp/response (str ctx))))}))
 (def intereq
   (interceptor
-   {:name ::intereq
-    :enter (fn [ctx]
-             (assoc ctx :response
-                    (ring-resp/response (str (:request ctx)))))}))
+    {:name ::intereq
+     :enter (fn [ctx]
+              (assoc ctx :response
+                         (ring-resp/response (str (:request ctx)))))}))
 
 (def hello
   (interceptor
-   {:name ::hello
-    :enter (fn [ctx]
-             (assoc ctx :response
-                    (ring-resp/response (str "hello world"))))}))
+    {:name ::hello
+     :enter (fn [ctx]
+              (assoc ctx :response
+                         (ring-resp/response (str "hello world"))))}))
 
 (def page-home
   (interceptor
-   {:name ::page-home
-    :enter (fn [ctx]
-             (assoc ctx :response
-                    (-> (ring-resp/response (planding/home))
-                        (ring-resp/content-type "text/html; charset=utf-8"))))}))
+    {:name ::page-home
+     :enter (fn [ctx]
+              (assoc ctx :response
+                         (-> (ring-resp/response (planding/home))
+                             (ring-resp/content-type "text/html; charset=utf-8"))))}))
 
 (def page-problem-input
   (interceptor
-   {:name ::page-problem-input
-    :enter (fn [ctx]
-             (assoc ctx :response
-                    (-> (ring-resp/response (pprobin/input-problem))
-                        (ring-resp/content-type "text/html; charset=utf-8"))))}))
+    {:name ::page-problem-input
+     :enter (fn [ctx]
+              (assoc ctx :response
+                         (-> (ring-resp/response (pprobin/input-problem))
+                             (ring-resp/content-type "text/html; charset=utf-8"))))}))
 
 (def page-problems-directory
   (interceptor
-   {:name ::page-problems-directory
-    :enter (fn [ctx]
-             (assoc ctx :response
-                    (-> (ring-resp/response (pprobdir/prob-directory))
-                        (ring-resp/content-type "text/html; charset=utf-8"))))}))
+    {:name ::page-problems-directory
+     :enter (fn [ctx]
+              (assoc ctx :response
+                         (-> (ring-resp/response (pprobdir/prob-directory))
+                             (ring-resp/content-type "text/html; charset=utf-8"))))}))
 
 (def page-quiz
   (interceptor
-   {:name ::page-quiz
-    :enter (fn [ctx]
-             (assoc ctx :response
-                    (-> (ring-resp/response (pquiz/do-quiz))
-                        (ring-resp/content-type "text/html; charset=utf-8"))))}))
+    {:name ::page-quiz
+     :enter (fn [ctx]
+              (assoc ctx :response
+                         (-> (ring-resp/response (pquiz/do-quiz))
+                             (ring-resp/content-type "text/html; charset=utf-8"))))}))
 
 (defn routes
   []
@@ -90,10 +91,9 @@
      {:get page-home}
      ["/problem-input" {:get page-problem-input}]
      ["/problems-directory" {:get page-problems-directory}]
-     ["/a" {:any intereq}]            
+     ["/a" {:any intereq}]
      ["/ctx" {:any interctx}]
-     ["/quiz" {:get page-quiz}]]
-]])
+     ["/quiz" {:get page-quiz}]]]])
 
 ;; #_(defn hello-world [req] {:status 200 :body "Hello World!"})
 ;; #_(defn macaca [req]
