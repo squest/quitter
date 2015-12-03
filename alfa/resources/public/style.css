@@ -5,7 +5,7 @@
 	Description: The Multi-Purpose Template
 	Author: SemiColonWeb
 	Author URI: http://themeforest.net/user/semicolonweb
-	Version: 3.0
+	Version: 3.1
 
 -----------------------------------------------------------------------------------*/
 
@@ -727,9 +727,9 @@ html[xmlns] .slider-wrap {display: block;}
 	top: 1px;
 }
 
-.top-links li i.icon-angle-down { margin: 0 0 0 2px !important; }
+.top-links li i.icon-angle-down { margin: 0 0 0 5px !important; }
 
-.top-links li i:first-child { margin-right: 2px; }
+.top-links li i:first-child { margin-right: 3px; }
 
 .top-links li.full-icon i {
 	top: 2px;
@@ -2093,6 +2093,8 @@ body.top-search-open #side-panel-trigger { opacity: 0; }
 	-webkit-backface-visibility: hidden;
 }
 
+#header.static-sticky ~ #page-menu.sticky-page-menu #page-menu-wrap { top: 100px; }
+
 #header.no-sticky ~ #page-menu.sticky-page-menu #page-menu-wrap { top: 0; }
 
 #page-submenu-trigger {
@@ -2141,6 +2143,8 @@ body.top-search-open #side-panel-trigger { opacity: 0; }
 	border-radius: 14px;
 }
 
+#page-menu nav li a .icon-angle-down { margin-left: 5px; }
+
 body:not(.device-touch) #page-menu nav li a {
 	-webkit-transition: all .2s ease-in-out;
 	-o-transition: all .2s ease-in-out;
@@ -2149,6 +2153,35 @@ body:not(.device-touch) #page-menu nav li a {
 
 #page-menu nav li:hover a,
 #page-menu nav li.current a { background-color: rgba(0,0,0,0.15); }
+
+#page-menu li:hover ul { display: block; }
+
+#page-menu ul ul {
+	display: none;
+	position: absolute;
+	width: 150px;
+	top: 44px;
+	left: 0;
+	z-index: 99;
+	height: auto;
+	background-color: #1ABC9C;
+}
+
+#page-menu ul ul ul { display: none !important; } /* Disable Multi-Level Links */
+
+#page-menu ul ul li { float: none; }
+
+#page-menu ul ul a {
+	height: auto;
+	line-height: 22px;
+	margin: 0;
+	padding: 8px 14px;
+	border-radius: 0;
+	background-color: rgba(0,0,0,0.15);
+}
+
+#page-menu ul ul li:hover a,
+#page-menu ul ul li.current a { background-color: rgba(0,0,0,0.3); }
 
 
 /* Page Menu - Dots Style
@@ -2524,15 +2557,15 @@ body.side-push-panel { overflow-x: hidden; }
 	top: 0;
 	right: -300px;
 	z-index: 399;
-	width: 300px;
+	width: 80%;
 	height: 100%;
 	background-color: #F5F5F5;
-	overflow: hidden;
+	overflow: scroll;
 	-webkit-backface-visibility: hidden;
 }
 
 body.side-panel-left #side-panel {
-	left: -300px;
+	left: -80%;
 	right: auto;
 }
 
@@ -2550,7 +2583,7 @@ body.side-panel-left.side-push-panel.stretched #header.sticky-header .container 
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 330px;
+	width: 100%;
 	height: 100%;
 	overflow: auto;
 	padding: 50px 70px 50px 40px;
@@ -9989,6 +10022,12 @@ body:not(.device-touch) .team-overlay {
 .rounded-skill {
 	display: inline-block;
 	margin: 0 15px 15px;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+	color: #333;
 }
 
 body:not(.device-touch) .rounded-skill {
@@ -9999,18 +10038,9 @@ body:not(.device-touch) .rounded-skill {
 
 .rounded-skill + h5 { margin-bottom: 0; }
 
-.easyPieChart {
-	display: inline-block;
-	position: relative;
-	text-align: center;
-	font-size: 22px;
-	font-weight: bold;
-	color: #333;
-}
+.rounded-skill i { font-size: 42px; }
 
-.easyPieChart i { font-size: 42px; }
-
-.easyPieChart canvas {
+.rounded-skill canvas {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -11568,6 +11598,18 @@ button.toast-close-button {
 	z-index: 1;
 }
 
+.device-lg.sticky-footer:not(.stretched) #footer,
+.device-md.sticky-footer:not(.stretched) #footer {
+	left: 50%;
+	margin-left: -610px;
+	width: 1220px;
+}
+
+.device-md.sticky-footer:not(.stretched) #footer {
+	margin-left: -500px;
+	width: 1000px;
+}
+
 #footer .footer-widgets-wrap {
 	position: relative;
 	padding: 80px 0;
@@ -12095,20 +12137,23 @@ label.checkbox { padding-left: 20px; }
 #cookie-notification {
 	position: fixed;
 	top: auto;
-	bottom: 0;
+	bottom: -70px;
 	left: 0;
 	width: 100%;
-	height: 60px;
-	line-height: 60px;
+	padding: 20px 0;
+	line-height: 24px;
 	background-color: #EEE;
 	color: #444;
 	z-index: 99;
 	-webkit-box-shadow: 0px -1px 4px 0px rgba(0,0,0,0.15);
 	-moz-box-shadow: 0px -1px 4px 0px rgba(0,0,0,0.15);
 	box-shadow: 0px -1px 4px 0px rgba(0,0,0,0.15);
+	-webkit-transition: bottom .4s ease;
+	-o-transition: bottom .4s ease;
+	transition: bottom .4s ease;
 }
 
-.cookie-noti-btn { margin-top: 15px; }
+.cookie-noti-btn {}
 
 
 /* ----------------------------------------------------------------
